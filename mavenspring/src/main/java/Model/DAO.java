@@ -31,11 +31,12 @@ protected void commit(){
     getSession().getTransaction().commit();
 }
 protected void rollback(){
+    try{
     getSession().getTransaction().rollback();
     getSession().close();
-    
+}
 catch(HibernateException e){}
-DAO.t1.set(null)
+DAO.t1.set(null);
 }
 
 public static void close(){
